@@ -4,8 +4,8 @@ A redesigned, modern mobile Order Tracking screen for an e-commerce app, built f
 
 ## Live Demo
 
-- **Live URL:** _add after deploy (Part 12)_
-- **GitHub repo:** _add your repo URL here_
+- **Live URL:** https://order-tracking-ayaz.netlify.app/
+- **GitHub repo:** https://github.com/fozayelibnayaz/order-tracking-screen
 
 > This screen includes a small dark **"Demo" bar pinned to the bottom** of the app. It lets you switch between every required state (On Time, Delayed, Not Received, Pending, Empty, Error) instantly, without needing mock backend calls or separate URLs. It's a testing aid only — a real production build would just call a real API and land on whichever state that returns.
 
