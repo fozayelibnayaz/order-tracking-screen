@@ -1,10 +1,11 @@
 import AppShell from "./components/layout/AppShell"
 import Header from "./components/layout/Header"
 import OrderSummary from "./components/OrderSummary"
-import { mockOrders } from "./data/mockOrders"
+import DeliveryTimeline from "./components/DeliveryTimeline"
+import { mockOrders, STEPS } from "./data/mockOrders"
 
 function App() {
-  const order = mockOrders.onTime
+  const order = mockOrders.onTime // try swapping to mockOrders.delayed or mockOrders.trackingPending below
 
   const handleBack = () => {
     console.log("Back button tapped")
@@ -13,6 +14,13 @@ function App() {
   return (
     <AppShell>
       <Header orderId={order.id} onBack={handleBack} />
+      <DeliveryTimeline
+        steps={STEPS}
+        currentStep={order.currentStep}
+        timeline={order.timeline}
+        isDelayed={order.isDelayed}
+        trackingAvailable={order.trackingAvailable}
+      />
       <OrderSummary
         orderId={order.id}
         placedAt={order.placedAt}
