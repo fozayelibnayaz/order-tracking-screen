@@ -1,12 +1,5 @@
 import { formatDate, formatDateTime } from "./format"
 
-// This function looks at an order's flags and decides:
-// - what tone/color it should be
-// - what headline and message to show
-// - what the ETA chip should say
-// - what the action button (if any) should say
-// Keeping this separate from the component means StatusBanner.jsx only
-// worries about HOW things look, and this file only worries about WHAT to say.
 export function getOrderStatusMeta(order) {
   const {
     isDelayed,
@@ -27,6 +20,7 @@ export function getOrderStatusMeta(order) {
       message: `Marked as delivered on ${formatDateTime(deliveredAt)}, but you told us it never arrived. Our support team is investigating and will update you within 24 hours.`,
       etaLabel: "Investigation in progress",
       actionLabel: "Chat with Support Now",
+      actionTarget: "contact",
     }
   }
 
@@ -39,6 +33,7 @@ export function getOrderStatusMeta(order) {
         : "Your order is taking longer than expected.",
       etaLabel: `New estimate: ${formatDate(newEstimatedDelivery.date)}, ${newEstimatedDelivery.window}`,
       actionLabel: "Contact Support",
+      actionTarget: "contact",
     }
   }
 
@@ -49,6 +44,7 @@ export function getOrderStatusMeta(order) {
       message: deliveryProofNote || "Your order has arrived.",
       etaLabel: `Delivered ${formatDateTime(deliveredAt)}`,
       actionLabel: "Didn't receive this order?",
+      actionTarget: "report",
     }
   }
 
@@ -59,6 +55,7 @@ export function getOrderStatusMeta(order) {
       message: "We're getting your order ready. Tracking details will appear here as soon as it ships.",
       etaLabel: estimatedDelivery ? `Estimated delivery: ${formatDate(estimatedDelivery.date)}` : null,
       actionLabel: null,
+      actionTarget: null,
     }
   }
 
@@ -77,5 +74,6 @@ export function getOrderStatusMeta(order) {
       ? `Estimated delivery: ${formatDate(estimatedDelivery.date)}, ${estimatedDelivery.window}`
       : null,
     actionLabel: null,
+    actionTarget: null,
   }
 }
