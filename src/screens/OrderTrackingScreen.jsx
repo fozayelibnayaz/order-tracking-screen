@@ -48,7 +48,7 @@ function OrderTrackingScreen() {
     <AppShell>
       <Header orderId={order ? order.id : "—"} onBack={() => console.log("Back button tapped")} />
 
-      <div className="flex-1 flex flex-col">
+      <div key={`${screenStatus}-${scenario}`} className="flex-1 flex flex-col animate-fade-in">
         {screenStatus === "loading" && <LoadingState />}
         {screenStatus === "error" && <ErrorState onRetry={handleRetry} />}
         {screenStatus === "empty" && <EmptyState onBrowse={() => console.log("Navigate to order list")} />}

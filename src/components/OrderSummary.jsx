@@ -14,7 +14,7 @@ function OrderSummary({ orderId, placedAt, items, subtotal, shippingFee, total, 
           <h2 className="text-sm font-semibold text-ink-900">Order Summary</h2>
           <button
             onClick={() => setShowDetails((prev) => !prev)}
-            className="flex items-center gap-1 text-xs font-medium text-brand-600 hover:text-brand-700"
+            className="flex items-center gap-1 text-xs font-medium text-brand-600 hover:text-brand-700 transition active:scale-95"
           >
             View details
             {showDetails ? <ChevronUp size={14} /> : <ChevronDown size={14} />}

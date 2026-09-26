@@ -5,7 +5,10 @@ import { ArrowLeft, MoreVertical } from "lucide-react"
 // - onBack: a function the parent gives us, called when the back button is tapped
 function Header({ orderId, onBack }) {
   return (
-    <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-100 px-4 py-3 flex items-center gap-3">
+    <header
+      className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-100 px-4 pb-3 flex items-center gap-3"
+      style={{ paddingTop: "max(0.75rem, env(safe-area-inset-top))" }}
+    >
       <button
         onClick={onBack}
         aria-label="Go back"
